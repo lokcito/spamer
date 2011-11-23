@@ -3,7 +3,8 @@
 import pygtk
 pygtk.require('2.0')
 import gtk
-
+from DialogConfiguracion import DConfiguracion
+from DialogRecuperar import DRecuperar
 
 class Maincontrol:
 	def __init__(self):
@@ -19,9 +20,16 @@ class Maincontrol:
 	
 	def click_toolbtnConfiguracion(self, widget, data=None):
 		print "Configurando"
+		#builder = gtk.Builder()
+		#builder.add_from_file("FormConfiguracion.glade")
+		#window = builder.get_object("formConfiguracion")
+		#window.show_all()i
+		wConfiguracion = DConfiguracion()
+		wConfiguracion.show()
 
 	def click_toolbtnRecuperar(self, widget, data=None):
-		print "Editando"
+		wRecuperar = DRecuperar()
+		wRecuperar.show()
 
 	def click_toolbtnMensaje(self, widget, data=None):
 		print "Redactando"
