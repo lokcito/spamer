@@ -5,25 +5,17 @@ pygtk.require('2.0')
 import gtk
 from DialogConfiguracion import DConfiguracion
 from DialogRecuperar import DRecuperar
+from DialogMensaje import DMensaje
 
 class Maincontrol:
 	def __init__(self):
 		self.builder = gtk.Builder()
 		self.builder.add_from_file("Form_Main.glade")
 		self.window = self.builder.get_object("form")
-		#self._btnConfiguracion = self.builder.get_object('btnConfiguracion')
-		#icono = gtk.Image()
-		#icono.set_from_file("icono.png")
-		#self._btnConfiguracion.set_image(icono)
 		self.builder.connect_signals(self)
 		self.window.show_all()
 	
 	def click_toolbtnConfiguracion(self, widget, data=None):
-		print "Configurando"
-		#builder = gtk.Builder()
-		#builder.add_from_file("FormConfiguracion.glade")
-		#window = builder.get_object("formConfiguracion")
-		#window.show_all()i
 		wConfiguracion = DConfiguracion()
 		wConfiguracion.show()
 
@@ -32,7 +24,8 @@ class Maincontrol:
 		wRecuperar.show()
 
 	def click_toolbtnMensaje(self, widget, data=None):
-		print "Redactando"
+		wMensaje = DMensaje()
+		wMensaje.show()
 	
 	def click_toolbtnEnviar(self, widget, data=None):
 		print "Enviando"
