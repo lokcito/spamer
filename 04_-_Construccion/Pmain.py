@@ -6,7 +6,7 @@ import gtk
 from DialogConfiguracion import DConfiguracion
 from DialogRecuperar import DRecuperar
 from DialogMensaje import DMensaje
-
+from Data import Data
 #import smtplib
 #import mimetypes
 #from email.MIMEText import MIMEText
@@ -46,7 +46,12 @@ class Maincontrol(object):
 		print a
 	
 	def click_toolbtnEnviar(self, widget, data=None):
-		sMail = Mail("enciso.leo@hotmail.com","enciso.leo@gmail.com,leo_14_4@hotmail.com","Hola mundo de leo","Si hola mundo de leo.")
+
+		self.datos = Data('mails/mail.txt')
+		self.datos.file_to_open()
+		texto = self.datos.read_to_file()
+		texto = texto.replace("\n",",")
+		sMail = Mail("enciso.leo@hotmail.com","enciso.leo@gmail.com,"+texto,"Hola mundo de leo","Si hola mundo de leo.")
 		sMail.connect_to_mail("leo.enciso@gmail.com","lloekocito_14@gmail.com")
 		sMail.send_to_mail()
 
